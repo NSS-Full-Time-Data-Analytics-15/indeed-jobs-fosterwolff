@@ -46,13 +46,13 @@ AND company IS NOT NULL
 GROUP BY company;
 ---40
 
-SELECT company,AVG(star_rating)
+SELECT review_count,company,AVG(star_rating) as avg_star_rating
 FROM data_analyst_jobs
 WHERE review_count > 5000
 AND company IS NOT NULL
-GROUP BY company
-ORDER BY avg DESC;
----UNILEVER 4.19
+GROUP BY review_count, company
+ORDER BY avg_star_rating DESC , review_count DESC;
+---Kaiser Permanente 4.19 , 8164 Reviews
 
 SELECT DISTINCT title
 FROM data_analyst_jobs

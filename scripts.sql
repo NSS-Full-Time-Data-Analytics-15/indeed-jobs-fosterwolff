@@ -67,9 +67,6 @@ AND title NOT ILIKE '%Analytics%';
 
 SELECT sum(days_since_posting) as hard_to_fill,domain 
 FROM data_analyst_jobs
----CASE WHEN domain ILIKE '%Insurance%' THEN 'INSURANCE'END
----WHEN domain ILIKE '%Health%' THEN 'HEALTH' END
----WHEN domain ILIKE '%Rest'
 WHERE domain IS NOT NULL
 AND days_since_posting > 21
 GROUP BY domain
@@ -78,22 +75,26 @@ ORDER BY hard_to_fill DESC;
 SELECT COUNT(*)
 FROM data_analyst_jobs
 WHERE domain = 'Consulting and Business Services'
----180
+and days_since_posting > 21; 
+---110
 
 SELECT COUNT(*)
 FROM data_analyst_jobs
 WHERE domain = 'Health Care'
----163
+and days_since_posting > 21; 
+---96
 
 SELECT COUNT(*)
 FROM data_analyst_jobs
 WHERE domain = 'Internet and Software'
----162
+and days_since_posting > 21; 
+---84
 
 SELECT COUNT(*)
 FROM data_analyst_jobs
 WHERE domain = 'Banks and Financial Services'
----145
+and days_since_posting > 21; 
+---77
 
 
 
